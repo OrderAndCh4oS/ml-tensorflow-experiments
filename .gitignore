@@ -1,0 +1,8 @@
+venv
+.idea
+
+*.png
+*.jpeg
+*.gif
+
+tensorflow_datasets
