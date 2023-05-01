@@ -78,7 +78,6 @@ NUM_EPOCHS = 10
 history = model.fit(train_dataset, epochs=NUM_EPOCHS, validation_data=test_dataset)
 
 
-
 # Plot utility
 def plot_graphs(history, string):
     plt.plot(history.history[string])

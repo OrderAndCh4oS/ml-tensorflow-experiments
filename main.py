@@ -72,6 +72,7 @@ class StopTrainingWhenLossLimitReached(tf.keras.callbacks.Callback):
             print(f"\nReached {self.loss} loss so cancelling training!")
             self.model.stop_training = True
 
+
 def fashion():
     fashion_mnist = tf.keras.datasets.fashion_mnist
     (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
