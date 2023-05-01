@@ -1,5 +1,6 @@
 from keras_preprocessing.sequence import pad_sequences
 from keras_preprocessing.text import Tokenizer
+import matplotlib.pyplot as plt
 
 sentences = [
     'I love my cats',
@@ -49,7 +50,19 @@ model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']
 
 # train the model
 labels = [1, 1, 1, 1, 0, 0, 0, 0]  # binary labels for the four sentences
-model.fit(np.array(padded_sequences), np.array(labels), epochs=5)
+history = model.fit(np.array(padded_sequences), np.array(labels), epochs=5)
+
+
+def plot_graphs(history, string):
+    plt.plot(history.history[string])
+    plt.xlabel("Epochs")
+    plt.ylabel(string)
+    plt.show()
+
+
+# Plot the accuracy and results
+plot_graphs(history, "accuracy")
+plot_graphs(history, "loss")
 
 # evaluate the model
 test_labels = [1, 0]
