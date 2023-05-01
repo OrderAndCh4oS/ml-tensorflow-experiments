@@ -11,7 +11,7 @@ sentences = [
     'We hate dogs',
     'Everyone hates dogs'
 ]
-print(256*256)
+print(256 * 256)
 tokenizer = Tokenizer(num_words=100, oov_token='<OOV>')
 tokenizer.fit_on_texts(sentences)
 word_index = tokenizer.word_index
@@ -31,7 +31,6 @@ padded_test_sequences = pad_sequences(test_sequences, maxlen=6)
 print('Test Sequences:', test_sequences)
 print('Padded Test Sequences:', padded_test_sequences)
 
-import tensorflow as tf
 from keras.models import Sequential
 from keras.layers import Embedding, LSTM, Dense
 import numpy as np
@@ -49,7 +48,7 @@ model.add(Dense(1, activation='sigmoid'))
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # train the model
-labels = [1, 1, 1, 1, 0, 0, 0, 0] # binary labels for the four sentences
+labels = [1, 1, 1, 1, 0, 0, 0, 0]  # binary labels for the four sentences
 model.fit(np.array(padded_sequences), np.array(labels), epochs=5)
 
 # evaluate the model

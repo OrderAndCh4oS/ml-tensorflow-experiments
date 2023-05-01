@@ -2,13 +2,12 @@ import numpy as np
 from keras import Sequential
 from keras.layers import MaxPooling2D, Conv2D, Flatten, Dense, Dropout
 from keras.optimizers import RMSprop
-from keras_preprocessing.image import ImageDataGenerator
 from keras_preprocessing import image
+from keras_preprocessing.image import ImageDataGenerator
 from matplotlib import pyplot as plt
 
 train_datagen = ImageDataGenerator(rescale=1 / 255)
 validation_datagen = ImageDataGenerator(rescale=1 / 255)
-
 
 # Note: separate images in to subdirectories by classification in the /image-train dir
 train_generator = train_datagen.flow_from_directory(
