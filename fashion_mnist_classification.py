@@ -1,49 +1,7 @@
 import numpy as np
 import tensorflow as tf
-# import sklearn as skl
-# import pandas as pd
-# import matplotlib as mpl
-# import seaborn as sb
 from keras import Sequential
 from keras.layers import Dense, Flatten
-
-
-def hello_world():
-    model = Sequential(Dense(units=1, input_shape=[1]))
-    model.compile(optimizer='sgd', loss='mean_squared_error')
-
-    xs = np.array([-1.0, 0.0, 1.0, 2.0, 3.0, 4.0])
-    ys = np.array([-3.0, -1.0, 1.0, 3.0, 5.0, 7.0])
-
-    model.fit(xs, ys, epochs=500)
-
-    return model.predict([10.0])
-
-
-def relu_demo(x):
-    if x > 0:
-        return x
-    return 0
-
-
-def softmax_demo():
-    # Declare sample inputs and convert to a tensor
-    inputs = np.array([[1.0, 3.0, 4.0, 2.0]])
-    inputs = tf.convert_to_tensor(inputs)
-    print(f'input to softmax function: {inputs.numpy()}')
-
-    # Feed the inputs to a softmax activation function
-    outputs = tf.keras.activations.softmax(inputs)
-    print(f'output of softmax function: {outputs.numpy()}')
-
-    # Get the sum of all values after the softmax
-    sum = tf.reduce_sum(outputs)
-    print(f'sum of outputs: {sum}')
-
-    # Get the index with highest value
-    prediction = np.argmax(outputs)
-    print(f'class with highest probability: {prediction}')
-
 
 class StopTrainingWhenAccuracyReached(tf.keras.callbacks.Callback):
     accuracy: float
@@ -113,6 +71,4 @@ def fashion():
 
 
 if __name__ == '__main__':
-    # print(hello_world())
-    # print(softmax_demo())
     fashion()
